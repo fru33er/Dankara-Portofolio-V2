@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { AnimatePresence, motion, useScroll, useSpring } from 'motion/react';
-import type { LocaleContent, LocaleKey, ThemeMode } from '../data/portfolio';
+import { portfolioConfig, type LocaleContent, type LocaleKey, type ThemeMode } from '../data/portfolio';
 import { Magnetic } from './Magnetic';
 import { RollText } from './RollText';
 
@@ -120,6 +120,18 @@ export function Header({
           </nav>
 
           <div className="header-controls">
+            <a
+              href={portfolioConfig.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              id="header-resume-btn"
+              className="resume-btn roll-trigger"
+              aria-label={content.ui.resumeAria}
+            >
+              <RollText text={content.ui.resumeBtn} />
+              <span aria-hidden="true">↗</span>
+            </a>
+
             <button
               type="button"
               id="lang-toggle"
@@ -265,6 +277,17 @@ export function Header({
                   </a>
                 ))}
               </nav>
+              <a
+                href={portfolioConfig.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary mobile-resume-btn"
+                aria-label={content.ui.resumeAria}
+                onClick={onCloseMobile}
+              >
+                <span>{content.ui.resumeBtn}</span>
+                <span aria-hidden="true">↗</span>
+              </a>
             </motion.aside>
           </>
         )}

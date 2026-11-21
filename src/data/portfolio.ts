@@ -89,6 +89,8 @@ export interface LocaleContent {
     cursorCopy: string;
     cursorTop: string;
     scrollLabel: string;
+    resumeBtn: string;
+    resumeAria: string;
   };
   brand: {
     wordmark: string;
@@ -189,9 +191,8 @@ export const portfolioConfig = {
   formEndpoint: '',
   // TODO: Set projectsEndpoint if loading project JSON remotely instead of local data.
   projectsEndpoint: '',
-  // TODO: Replace with your active email address.
-  contactEmail: 'email@example.com',
-  // TODO: Fill each url with your real profile link to activate it as a live anchor.
+  contactEmail: 'raka4100@gmail.com',
+  resumeUrl: '/CV_Raka%20Andhika.pdf',
   socials: [
     { id: 'github', label: 'GitHub', handle: 'Fru33er', url: 'https://github.com/Fru33er' },
     { id: 'linkedin', label: 'LinkedIn', handle: 'Raka Andhika', url: 'https://linkedin.com/in/rakaandhika' },
@@ -229,7 +230,9 @@ export const portfolioLocales: Record<LocaleKey, LocaleContent> = {
       cursorView: 'LIHAT',
       cursorCopy: 'SALIN',
       cursorTop: 'ATAS',
-      scrollLabel: 'GULIR'
+      scrollLabel: 'GULIR',
+      resumeBtn: 'Résumé',
+      resumeAria: 'Buka Résumé Raka Andhika di tab baru (PDF)'
     },
     brand: {
       wordmark: 'Raka Andhika',
@@ -441,7 +444,7 @@ export const portfolioLocales: Record<LocaleKey, LocaleContent> = {
       index: '03',
       title: 'Kontak',
       lead: 'Lagi cari partner freelance buat web development, software engineering, atau desain grafis? Kirim aja brief singkatmu lewat form ini atau langsung email.',
-      emailLabel: 'Email langsung (placeholder)',
+      emailLabel: 'Email langsung',
       copyEmailBtn: 'Salin email',
       copiedEmailBtn: 'Email udah disalin',
       copiedAnnouncement: 'Alamat email berhasil disalin ke papan klip.',
@@ -505,7 +508,9 @@ export const portfolioLocales: Record<LocaleKey, LocaleContent> = {
       cursorView: 'VIEW',
       cursorCopy: 'COPY',
       cursorTop: 'TOP',
-      scrollLabel: 'SCROLL'
+      scrollLabel: 'SCROLL',
+      resumeBtn: 'Résumé',
+      resumeAria: 'Open Raka Andhika Résumé in a new tab (PDF)'
     },
     brand: {
       wordmark: 'Raka Andhika',
@@ -717,7 +722,7 @@ export const portfolioLocales: Record<LocaleKey, LocaleContent> = {
       index: '03',
       title: 'Contact',
       lead: 'Need a freelance hand for web development, software engineering, or graphic design? Drop a quick brief here or reach out by email.',
-      emailLabel: 'Direct email (placeholder)',
+      emailLabel: 'Direct email',
       copyEmailBtn: 'Copy email',
       copiedEmailBtn: 'Email copied',
       copiedAnnouncement: 'Email address copied to clipboard.',

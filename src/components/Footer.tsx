@@ -1,4 +1,4 @@
-import type { LocaleContent, ThemeMode } from '../data/portfolio';
+import { portfolioConfig, type LocaleContent, type ThemeMode } from '../data/portfolio';
 import { FooterAsciiScene } from './FooterAsciiScene';
 import { Magnetic } from './Magnetic';
 import { RollText } from './RollText';
@@ -40,18 +40,32 @@ export function Footer({ content, theme }: FooterProps) {
             ))}
           </nav>
 
-          <Magnetic strength={6}>
-            <button
-              type="button"
-              id="back-to-top"
-              className="btn btn-secondary roll-trigger"
-              data-cursor-label={content.ui.cursorTop}
-              onClick={handleBackToTop}
+          <div className="footer-actions">
+            <a
+              href={portfolioConfig.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              id="footer-resume-btn"
+              className="btn btn-primary roll-trigger"
+              aria-label={content.ui.resumeAria}
             >
-              <RollText text={content.ui.backToTop} />
-              <span aria-hidden="true">↑</span>
-            </button>
-          </Magnetic>
+              <RollText text={content.ui.resumeBtn} />
+              <span aria-hidden="true">↗</span>
+            </a>
+
+            <Magnetic strength={6}>
+              <button
+                type="button"
+                id="back-to-top"
+                className="btn btn-secondary roll-trigger"
+                data-cursor-label={content.ui.cursorTop}
+                onClick={handleBackToTop}
+              >
+                <RollText text={content.ui.backToTop} />
+                <span aria-hidden="true">↑</span>
+              </button>
+            </Magnetic>
+          </div>
         </div>
 
         <div className="footer-bottom">
