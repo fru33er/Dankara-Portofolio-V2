@@ -1,0 +1,62 @@
+:root {
+  color-scheme: light;
+
+  /* Verified WCAG AA light monochrome palette */
+  --bg: #F6F5F1;
+  --surface: #ECEAE3;
+  --surface-elevated: #FFFFFF;
+  --ink: #111110;
+  --ink-secondary: #474642;
+  --ink-muted: #595853;
+  --border-strong: #6E6D67;
+  --border-subtle: #CFCBC2;
+  --ink-inverted: #F6F5F1;
+  --scrim: rgba(17, 17, 16, 0.56);
+
+  /* Typography */
+  --font-display: 'Bricolage Grotesque', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
+
+  /* Fluid scale */
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1rem;
+  --text-lead: clamp(1.125rem, 1.8vw, 1.375rem);
+  --text-h3: clamp(1.25rem, 2vw, 1.625rem);
+  --text-h2: clamp(2rem, 4.4vw, 3.5rem);
+  --text-hero: clamp(2.65rem, 7.6vw, 6.25rem);
+
+  /* Layout & structural rhythm */
+  --container-max: 78rem;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --header-height: 4.5rem;
+  --radius-none: 0px;
+  --radius-sharp: 2px;
+  --radius-control: 4px;
+
+  /* Shadow reserved strictly for floating preview, open modal, and mobile drawer */
+  --shadow-overlay: 0 24px 64px rgba(17, 17, 16, 0.22);
+
+  /* Motion tokens */
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 180ms;
+  --dur-med: 380ms;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Verified WCAG AA dark monochrome palette */
+  --bg: #0E0E0D;
+  --surface: #181816;
+  --surface-elevated: #20201D;
+  --ink: #F3F2EC;
+  --ink-secondary: #C5C3BA;
+  --ink-muted: #A4A29A;
+  --border-strong: #8C8A82;
+  --border-subtle: #2E2E2A;
+  --ink-inverted: #0E0E0D;
+  --scrim: rgba(0, 0, 0, 0.72);
+  --shadow-overlay: 0 28px 72px rgba(0, 0, 0, 0.58);
+}
