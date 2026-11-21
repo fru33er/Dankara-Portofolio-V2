@@ -142,6 +142,10 @@ export interface LocaleContent {
     livePending: string;
     repoCta: string;
     repoPending: string;
+    lightboxOpenHint: string;
+    lightboxClose: string;
+    lightboxPrev: string;
+    lightboxNext: string;
     items: ProjectItem[];
   };
   contact: {
@@ -351,6 +355,10 @@ export const portfolioLocales: Record<LocaleKey, LocaleContent> = {
       livePending: 'Demo langsung belum ditautkan',
       repoCta: 'Lihat repositori',
       repoPending: 'Repositori belum ditautkan',
+      lightboxOpenHint: 'Klik untuk perbesar',
+      lightboxClose: 'Tutup pratinjau gambar',
+      lightboxPrev: 'Gambar sebelumnya',
+      lightboxNext: 'Gambar berikutnya',
       items: [
         {
           id: 'work-01',
@@ -629,6 +637,10 @@ export const portfolioLocales: Record<LocaleKey, LocaleContent> = {
       livePending: 'Live demo not linked yet',
       repoCta: 'View repository',
       repoPending: 'Repository not linked yet',
+      lightboxOpenHint: 'Click to expand',
+      lightboxClose: 'Close image preview',
+      lightboxPrev: 'Previous image',
+      lightboxNext: 'Next image',
       items: [
         {
           id: 'work-01',

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import {
   portfolioConfig,
@@ -6,6 +6,7 @@ import {
   type ProjectItem
 } from '../data/portfolio';
 import { KineticNumeral } from './KineticNumeral';
+import { MediaLightbox } from './MediaLightbox';
 
 interface WorksSectionProps {
   content: LocaleContent;
@@ -22,12 +23,21 @@ export function WorksSection({ content }: WorksSectionProps) {
   const [remoteItems, setRemoteItems] = useState<ProjectItem[] | null>(null);
   const [activeWorkId, setActiveWorkId] = useState<string | null>(null);
   const [activeMediaIdx, setActiveMediaIdx] = useState<number>(0);
+  const [lightboxOpen, setLightboxOpen] = useState<boolean>(false);
+  const lastMediaTriggerRef = useRef<HTMLButtonElement | null>(null);
 
   const selectWork = useCallback((id: string | null) => {
     setActiveWorkId((prev) => {
       if (prev !== id) setActiveMediaIdx(0);
       return id;
     });
+  }, []);
+
+  const handleCloseLightbox = useCallback(() => {
+    setLightboxOpen(false);
+    window.setTimeout(() => {
+      lastMediaTriggerRef.current?.focus({ preventScroll: true });
+    }, 310);
   }, []);
 
   const loadRemoteProjects = useCallback(async () => {
@@ -115,9 +125,11 @@ export function WorksSection({ content }: WorksSectionProps) {
           {status === 'ready' && items.length > 0 && (
             <div
               className={`works-split-stage${isSplit ? ' is-split' : ''}`}
-              onMouseLeave={() => selectWork(null)}
+              onMouseLeave={() => {
+                if (!lightboxOpen) selectWork(null);
+              }}
               onBlur={(e) => {
-                if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+                if (!lightboxOpen && !e.currentTarget.contains(e.relatedTarget as Node | null)) {
                   selectWork(null);
                 }
               }}
@@ -225,14 +237,27 @@ export function WorksSection({ content }: WorksSectionProps) {
                             <figure className="work-media-figure">
                               <div className="work-media-slot is-wide">
                                 {currentMedia.src ? (
-                                  <img
-                                    key={currentMedia.src}
-                                    src={currentMedia.src}
-                                    alt={currentMedia.alt}
-                                    loading="lazy"
-                                    decoding="async"
-                                    className="work-media-img"
-                                  />
+                                  <button
+                                    type="button"
+                                    className="work-media-trigger"
+                                    aria-label={`${activeWork.title}: ${works.lightboxOpenHint}`}
+                                    onClick={(e) => {
+                                      lastMediaTriggerRef.current = e.currentTarget;
+                                      setLightboxOpen(true);
+                                    }}
+                                  >
+                                    <img
+                                      key={currentMedia.src}
+                                      src={currentMedia.src}
+                                      alt={currentMedia.alt}
+                                      loading="lazy"
+                                      decoding="async"
+                                      className="work-media-img"
+                                    />
+                                    <span className="work-media-zoom-badge" aria-hidden="true">
+                                      {works.lightboxOpenHint} ↗
+                                    </span>
+                                  </button>
                                 ) : (
                                   <div className="work-media-placeholder">
                                     <div className="work-media-placeholder-head">
@@ -353,6 +378,20 @@ export function WorksSection({ content }: WorksSectionProps) {
           )}
         </div>
       </div>
+
+      <MediaLightbox
+        isOpen={lightboxOpen && Boolean(activeWork?.media?.length)}
+        title={activeWork?.title ?? ''}
+        media={activeWork?.media ?? []}
+        index={activeMediaIdx}
+        onChangeIndex={setActiveMediaIdx}
+        onClose={handleCloseLightbox}
+        labels={{
+          close: works.lightboxClose,
+          prev: works.lightboxPrev,
+          next: works.lightboxNext
+        }}
+      />
     </section>
   );
 }
