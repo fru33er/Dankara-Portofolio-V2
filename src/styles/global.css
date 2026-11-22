@@ -1775,6 +1775,22 @@ main,
   aspect-ratio: 16 / 9;
 }
 
+.work-media-mobile-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.work-media-slot.is-mobile-screen {
+  aspect-ratio: 390 / 844;
+  border-radius: 10px;
+}
+
+.work-media-img.is-contain {
+  object-fit: contain;
+  object-position: center;
+}
+
 .work-media-img {
   display: block;
   width: 100%;
@@ -2545,6 +2561,10 @@ main,
   .work-highlights-list,
   .work-media-stage.is-grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .work-media-mobile-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .works-split-stage.is-split .work-ledger-cat {

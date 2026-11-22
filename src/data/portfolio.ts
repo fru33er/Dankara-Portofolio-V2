@@ -52,9 +52,10 @@ export interface ProjectItem {
   previewCode?: string;
   previewCaption?: string;
   statusBadge?: string;
-  mediaLayout?: 'wide' | 'grid';
+  mediaLayout?: 'wide' | 'grid' | 'mobile';
   media?: ProjectMediaItem[];
   specs?: ProjectSpec[];
+  highlightsTitle?: string;
   highlights?: string[];
   context?: string;
   approach?: string;
@@ -444,8 +445,122 @@ export const portfolioLocales: Record<LocaleKey, LocaleContent> = {
           stack: ['Kotlin', 'Android SDK', 'Jetpack', 'Google ARCore', 'SceneView (Filament)', 'Firebase Firestore', 'Room SQLite', 'Dagger-Hilt'],
           liveUrl: '',
           repoUrl: ''
+        },
+        {
+          id: 'work-03',
+          index: '03',
+          title: 'Sakuin',
+          year: '2026',
+          role: 'UI/UX Designer (Personal Project)',
+          previewCode: 'SK/03',
+          statusBadge: 'UI/UX · Personal Project',
+          mediaLayout: 'mobile',
+          media: [
+            {
+              src: '/images/projects/sakuin/sakuin-01-beranda.webp',
+              alt: 'Layar Beranda Sakuin menampilkan Jatah Jajan Hari Ini, streak mingguan, dan daftar transaksi harian',
+              caption: '01 · Beranda',
+              placeholderCode: 'FIG. 01',
+              placeholderHint: 'sakuin-01-beranda.webp'
+            },
+            {
+              src: '/images/projects/sakuin/sakuin-02-catat.webp',
+              alt: 'Layar Catat Cepat Sakuin dengan refleksi tag Butuh, Pengen aja, dan Lapar mata',
+              caption: '02 · Catat',
+              placeholderCode: 'FIG. 02',
+              placeholderHint: 'sakuin-02-catat.webp'
+            },
+            {
+              src: '/images/projects/sakuin/sakuin-03-habit.webp',
+              alt: 'Layar Habit Kamu di Sakuin menampilkan streak aktif, tantangan anti-boncos, dan misi harian',
+              caption: '03 · Habit',
+              placeholderCode: 'FIG. 03',
+              placeholderHint: 'sakuin-03-habit.webp'
+            },
+            {
+              src: '/images/projects/sakuin/sakuin-04-pantau.webp',
+              alt: 'Layar Pantau Cek Ombak di Sakuin menampilkan grafik pengeluaran mingguan, Radar Bocor Halus, dan Celengan Target',
+              caption: '04 · Pantau',
+              placeholderCode: 'FIG. 04',
+              placeholderHint: 'sakuin-04-pantau.webp'
+            }
+          ],
+          summary: 'Sakuin adalah konsep desain aplikasi mobile pencatatan keuangan berbasis pembentukan habit yang dirancang khusus untuk anak muda Indonesia. Banyak pengguna cepat berhenti memakai aplikasi finance tracker karena terasa kaku, rumit, atau bikin stres, sementara pengeluaran impulsif (bocor halus) terus berjalan tanpa terasa. Alih-alih sekadar buku kas, Sakuin membantu pengguna menyadari pola jajan dan memperbaiki kebiasaan finansial sedikit demi sedikit lewat pengalaman harian yang ringan dan suportif.',
+          specs: [
+            { label: 'Arah visual', value: 'Cheerful Minimalist (#F6F7F9 & #FFFFFF · Lime, Yellow, Coral, Mint, Sky)' },
+            { label: 'Sistem & tipografi', value: 'Plus Jakarta Sans & DM Mono · 390 × 844 px · Reusable Components' },
+            { label: 'Gaya copywriting', value: 'Bahasa Indonesia santai, jujur & relatable tanpa emoji ("Aman pol", "Cek Ombak")' },
+            { label: 'Fokus UX', value: 'Batas jajan harian, refleksi habit, gamifikasi ringan & evaluasi visual' }
+          ],
+          highlightsTitle: 'Pendekatan desain & solusi',
+          highlights: [
+            'Beranda (Batas Jajan Harian): Fokus ke Jatah Jajan Hari Ini tanpa hitung manual, lengkap dengan strip streak mingguan dan pengingat jajan berulang.',
+            'Catat (Pencatatan Cepat + Kesadaran Habit): Refleksi singkat lewat tag Butuh, Pengen aja, atau Lapar mata sebelum menyimpan transaksi.',
+            'Habit (Gamifikasi Ringan): Streak harian, tantangan anti-boncos (No Checkout Tengah Malam & Rem Ngopi), serta misi harian bertahap.',
+            'Pantau (Cek Ombak): Grafik pengeluaran mingguan, Radar Bocor Halus (Butuh vs Impulsif), dan progres Celengan Target dalam satu pandangan.'
+          ],
+          stack: ['Figma', 'UI/UX Design', 'Design System', 'UX Copywriting', 'Mobile App (390×844)'],
+          liveUrl: '',
+          repoUrl: ''
+        },
+        {
+          id: 'work-04',
+          index: '04',
+          title: 'Sona',
+          year: '2026',
+          role: 'UI/UX Designer (Personal Project)',
+          previewCode: 'SN/04',
+          statusBadge: 'UI/UX · Personal Project',
+          mediaLayout: 'mobile',
+          media: [
+            {
+              src: '/images/projects/sona/sona-01-listen-now.webp',
+              alt: 'Layar Home Listen Now di Sona dengan mood pills, grid Quick Picks 2x2, kartu Curated Mix, dan rak Jump Back In',
+              caption: '01 · Listen Now',
+              placeholderCode: 'FIG. 01',
+              placeholderHint: 'sona-01-listen-now.webp'
+            },
+            {
+              src: '/images/projects/sona/sona-02-now-playing.webp',
+              alt: 'Layar Now Playing di Sona dengan artwork 1:1 penuh, indikator LOSSLESS, kontrol kaca taktil, dan pill AirPods Pro, Lyrics, Up Next',
+              caption: '02 · Now Playing',
+              placeholderCode: 'FIG. 02',
+              placeholderHint: 'sona-02-now-playing.webp'
+            },
+            {
+              src: '/images/projects/sona/sona-03-search-explore.webp',
+              alt: 'Layar Search & Explore di Sona dengan kolom pencarian kaca mengambang, trending chips, dan ubin genre berlapis kaca',
+              caption: '03 · Search & Explore',
+              placeholderCode: 'FIG. 03',
+              placeholderHint: 'sona-03-search-explore.webp'
+            },
+            {
+              src: '/images/projects/sona/sona-04-library.webp',
+              alt: 'Layar Library di Sona dengan filter kategori bersih, kartu Liked Songs, dan daftar editorial Recently Added bergaris tipis',
+              caption: '04 · Library',
+              placeholderCode: 'FIG. 04',
+              placeholderHint: 'sona-04-library.webp'
+            }
+          ],
+          summary: 'Sona adalah konsep desain aplikasi pemutar musik iOS minimalis yang menghadirkan alternatif lebih tenang dibandingkan aplikasi streaming modern yang sering penuh grid padat dan banner promosi. Dengan pendekatan minimalisme ala Apple dan materialitas optical glassmorphism, Sona menempatkan sampul album serta kontrol pemutaran sebagai fokus utama di atas kanvas obsidian gelap dengan kedalaman visual yang bersih dan nyaman dijangkau ibu jari.',
+          specs: [
+            { label: 'Platform & proporsi', value: 'iOS Mobile (393 × 852 px) · Framing sampul 1:1 · Kontrol ramah ibu jari' },
+            { label: 'Cakupan kerja', value: 'Visual Direction · Design Tokens · Component Library · Core Screen Flows' },
+            { label: 'Arah visual', value: 'Optical Glass (backdrop blur, specular 1px) · Obsidian (#090A0F) · Inter · Coral (#FA3C5A)' },
+            { label: 'Sistem komponen', value: 'Token warna & tipografi · iOS Status Bar · Synced Mini Player · Liquid Glass Tab Bar' }
+          ],
+          highlightsTitle: 'Layar utama & sistem desain',
+          highlights: [
+            'Listen Now (Home): Pil filter mood, grid Quick Picks 2×2 yang ringkas, kartu hero Curated Mix ber-footer kaca buram, dan rak album Jump Back In.',
+            'Now Playing: Tampilan pemutaran imersif dengan ambient color bloom, artwork 1:1 penuh, scrubber minimalis + indikator LOSSLESS, dan utilitas AirPods Pro, Lyrics, Up Next.',
+            'Search & Explore: Kolom pencarian kaca mengambang dengan input suara, chip pencarian tren, kartu artis Recently Searched, dan ubin genre berlapis kaca.',
+            'Library: Filter kategori bersih, kartu kaca Liked Songs tersemat, serta daftar editorial Recently Added bersekat garis tipis tanpa pengulangan kotak kartu.'
+          ],
+          stack: ['Figma', 'iOS UI/UX', 'Design Tokens', 'Component Library', 'Glassmorphism'],
+          liveUrl: '',
+          repoUrl: ''
         }
-        // Tambahkan karya berikutnya di sini (work-03, work-04, dst.) dengan struktur yang sama.
+        // Tambahkan karya berikutnya di sini (work-05, dst.) dengan struktur yang sama.
       ]
     },
     contact: {
@@ -726,8 +841,122 @@ export const portfolioLocales: Record<LocaleKey, LocaleContent> = {
           stack: ['Kotlin', 'Android SDK', 'Jetpack', 'Google ARCore', 'SceneView (Filament)', 'Firebase Firestore', 'Room SQLite', 'Dagger-Hilt'],
           liveUrl: '',
           repoUrl: ''
+        },
+        {
+          id: 'work-03',
+          index: '03',
+          title: 'Sakuin',
+          year: '2026',
+          role: 'UI/UX Designer (Personal Project)',
+          previewCode: 'SK/03',
+          statusBadge: 'UI/UX · Personal Project',
+          mediaLayout: 'mobile',
+          media: [
+            {
+              src: '/images/projects/sakuin/sakuin-01-beranda.webp',
+              alt: 'Sakuin Home screen showing daily spending allowance, weekly streak strip, and daily transaction list',
+              caption: '01 · Home (Beranda)',
+              placeholderCode: 'FIG. 01',
+              placeholderHint: 'sakuin-01-beranda.webp'
+            },
+            {
+              src: '/images/projects/sakuin/sakuin-02-catat.webp',
+              alt: 'Sakuin Quick Entry screen with mindful spending reflection tags (Need, Want, Impulse)',
+              caption: '02 · Quick Log (Catat)',
+              placeholderCode: 'FIG. 02',
+              placeholderHint: 'sakuin-02-catat.webp'
+            },
+            {
+              src: '/images/projects/sakuin/sakuin-03-habit.webp',
+              alt: 'Sakuin Habit screen displaying active logging streaks, anti-overspend challenges, and daily missions',
+              caption: '03 · Habit',
+              placeholderCode: 'FIG. 03',
+              placeholderHint: 'sakuin-03-habit.webp'
+            },
+            {
+              src: '/images/projects/sakuin/sakuin-04-pantau.webp',
+              alt: 'Sakuin Monitor screen displaying weekly spending chart, Need vs Impulse radar, and savings targets',
+              caption: '04 · Monitor (Pantau)',
+              placeholderCode: 'FIG. 04',
+              placeholderHint: 'sakuin-04-pantau.webp'
+            }
+          ],
+          summary: 'Sakuin is a habit-driven personal finance mobile app design concept built specifically for young Indonesians. Many young users quit finance trackers because they feel tedious, complex, or stressful, while quiet impulse spending ("bocor halus") keeps slipping through. Rather than acting like a rigid ledger, Sakuin helps users recognize daily spending patterns and steadily improve financial habits through a light, supportive daily tracking flow.',
+          specs: [
+            { label: 'Visual direction', value: 'Cheerful Minimalist (#F6F7F9 & #FFFFFF · Lime, Yellow, Coral, Mint, Sky)' },
+            { label: 'System & typography', value: 'Plus Jakarta Sans & DM Mono · 390 × 844 px · Reusable Components' },
+            { label: 'UX copywriting', value: 'Casual, honest youth Indonesian voice with zero emoji ("Aman pol", "Cek Ombak")' },
+            { label: 'UX focus', value: 'Daily spending allowance, habit reflection, light gamification & visual review' }
+          ],
+          highlightsTitle: 'Design approach & solutions',
+          highlights: [
+            'Home (Daily Allowance): Focuses on today\'s safe spending budget with a weekly streak strip and light repeat-spending nudges.',
+            'Quick Log (Mindful Reflection): Adds light reflection via Need, Want, or Impulse tags ("Butuh", "Pengen aja", "Lapar mata") before saving.',
+            'Habit (Light Gamification): Daily logging streaks, anti-overspend challenges ("No Checkout Tengah Malam", "Rem Ngopi"), and daily missions.',
+            'Monitor (Visual Review): Weekly spending bar chart, impulse radar (Need vs Impulse), and savings goal progress in one concise view.'
+          ],
+          stack: ['Figma', 'UI/UX Design', 'Design System', 'UX Copywriting', 'Mobile App (390×844)'],
+          liveUrl: '',
+          repoUrl: ''
+        },
+        {
+          id: 'work-04',
+          index: '04',
+          title: 'Sona',
+          year: '2026',
+          role: 'UI/UX Designer (Personal Project)',
+          previewCode: 'SN/04',
+          statusBadge: 'UI/UX · Personal Project',
+          mediaLayout: 'mobile',
+          media: [
+            {
+              src: '/images/projects/sona/sona-01-listen-now.webp',
+              alt: 'Sona Listen Now home screen with mood filter pills, 2x2 Quick Picks grid, Curated Mix hero card, and Jump Back In shelf',
+              caption: '01 · Listen Now',
+              placeholderCode: 'FIG. 01',
+              placeholderHint: 'sona-01-listen-now.webp'
+            },
+            {
+              src: '/images/projects/sona/sona-02-now-playing.webp',
+              alt: 'Sona Now Playing screen with full-width 1:1 album artwork, LOSSLESS audio badge, glass transport controls, and AirPods Pro, Lyrics, Up Next utility pill',
+              caption: '02 · Now Playing',
+              placeholderCode: 'FIG. 02',
+              placeholderHint: 'sona-02-now-playing.webp'
+            },
+            {
+              src: '/images/projects/sona/sona-03-search-explore.webp',
+              alt: 'Sona Search & Explore screen with floating glass search bar, trending chips, recently searched artist card, and tinted glass genre tiles',
+              caption: '03 · Search & Explore',
+              placeholderCode: 'FIG. 03',
+              placeholderHint: 'sona-03-search-explore.webp'
+            },
+            {
+              src: '/images/projects/sona/sona-04-library.webp',
+              alt: 'Sona Library screen with clean category filters, pinned Liked Songs glass card, and hairline-separated Recently Added editorial list',
+              caption: '04 · Library',
+              placeholderCode: 'FIG. 04',
+              placeholderHint: 'sona-04-library.webp'
+            }
+          ],
+          summary: 'Sona is a minimalist iOS music player app concept exploring a quieter alternative to dense grids, heavy cards, and noisy promotional banners in modern streaming apps. Built through Apple-inspired minimalism and optical glassmorphism, it brings album artwork and listening controls to the forefront with layered translucent depth, uniform proportions, and bottom-anchored controls optimized for thumb reach.',
+          specs: [
+            { label: 'Platform & proportions', value: 'iOS Mobile (393 × 852 px) · 1:1 artwork framing · Thumb-reach controls' },
+            { label: 'Scope', value: 'Visual Direction · Design Tokens · Component Library · Core Screen Flows' },
+            { label: 'Design direction', value: 'Optical Glass (backdrop blur, 1px specular borders) · Obsidian (#090A0F) · Inter · Coral (#FA3C5A)' },
+            { label: 'Component system', value: 'Tokenized color & type · iOS Status Bar · Synced Mini Player · Liquid Glass Tab Bar' }
+          ],
+          highlightsTitle: 'Key screens & design system',
+          highlights: [
+            'Listen Now (Home): Mood filter pills, a compact 2×2 Quick Picks grid, an editorial Curated Mix hero card with a frosted glass footer, and a Jump Back In shelf.',
+            'Now Playing: Ambient color bloom playback view, full-width 1:1 artwork, minimal scrubber with LOSSLESS indicator, tactile glass controls, and an AirPods Pro / Lyrics / Up Next pill.',
+            'Search & Explore: Floating glass search field with voice input, trending query chips, a Recently Searched artist card, and tinted glass genre tiles.',
+            'Library: Clean category filters, a pinned Liked Songs glass card, and a hairline-separated Recently Added editorial list avoiding repetitive card boxing.'
+          ],
+          stack: ['Figma', 'iOS UI/UX', 'Design Tokens', 'Component Library', 'Glassmorphism'],
+          liveUrl: '',
+          repoUrl: ''
         }
-        // Add future works here (work-03, work-04, etc.) using the same structure.
+        // Add future works here (work-05, etc.) using the same structure.
       ]
     },
     contact: {

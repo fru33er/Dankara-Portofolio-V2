@@ -229,6 +229,41 @@ export function WorksSection({ content }: WorksSectionProps) {
                       <p className="work-side-summary">{activeWork.summary}</p>
 
                       {activeWork.media && activeWork.media.length > 0 && (() => {
+                        if (activeWork.mediaLayout === 'mobile') {
+                          return (
+                            <div className="work-media-mobile-grid" role="group" aria-label={activeWork.title}>
+                              {activeWork.media.map((slot, idx) => (
+                                <figure key={slot.placeholderCode + slot.caption} className="work-media-figure">
+                                  <div className="work-media-slot is-mobile-screen">
+                                    <button
+                                      type="button"
+                                      className="work-media-trigger"
+                                      aria-label={`${activeWork.title} ${slot.caption}: ${works.lightboxOpenHint}`}
+                                      onClick={(e) => {
+                                        lastMediaTriggerRef.current = e.currentTarget;
+                                        setActiveMediaIdx(idx);
+                                        setLightboxOpen(true);
+                                      }}
+                                    >
+                                      <img
+                                        src={slot.src}
+                                        alt={slot.alt}
+                                        loading="lazy"
+                                        decoding="async"
+                                        className="work-media-img is-contain"
+                                      />
+                                      <span className="work-media-zoom-badge" aria-hidden="true">
+                                        ↗
+                                      </span>
+                                    </button>
+                                  </div>
+                                  <figcaption className="work-media-caption">{slot.caption}</figcaption>
+                                </figure>
+                              ))}
+                            </div>
+                          );
+                        }
+
                         const safeIdx = Math.min(activeMediaIdx, activeWork.media.length - 1);
                         const currentMedia = activeWork.media[safeIdx];
                         const hasMultiple = activeWork.media.length > 1;
@@ -357,7 +392,9 @@ export function WorksSection({ content }: WorksSectionProps) {
 
                       {activeWork.highlights && activeWork.highlights.length > 0 && (
                         <div className="work-highlights">
-                          <h4 className="work-highlights-title">{works.highlightsLabel}</h4>
+                          <h4 className="work-highlights-title">
+                            {activeWork.highlightsTitle ?? works.highlightsLabel}
+                          </h4>
                           <ol className="work-highlights-list">
                             {activeWork.highlights.map((item, idx) => (
                               <li key={item} className="work-highlight-item">
