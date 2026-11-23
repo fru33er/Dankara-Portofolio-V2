@@ -26,14 +26,14 @@ interface PulseWave {
 
 export function InteractiveBackground({ theme }: InteractiveBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const inkRgbRef = useRef<[number, number, number]>(theme === 'dark' ? [243, 242, 236] : [17, 17, 16]);
+  const inkRgbRef = useRef<[number, number, number]>(theme === 'dark' ? [255, 255, 255] : [17, 17, 16]);
   const baseAlphaRef = useRef(theme === 'dark' ? 0.12 : 0.1);
-  const peakAlphaRef = useRef(theme === 'dark' ? 0.38 : 0.34);
+  const peakAlphaRef = useRef(theme === 'dark' ? 0.68 : 0.6);
 
   useEffect(() => {
-    inkRgbRef.current = theme === 'dark' ? [243, 242, 236] : [17, 17, 16];
+    inkRgbRef.current = theme === 'dark' ? [255, 255, 255] : [17, 17, 16];
     baseAlphaRef.current = theme === 'dark' ? 0.12 : 0.1;
-    peakAlphaRef.current = theme === 'dark' ? 0.38 : 0.34;
+    peakAlphaRef.current = theme === 'dark' ? 0.68 : 0.6;
     window.dispatchEvent(new CustomEvent('interactive-bg-redraw'));
   }, [theme]);
 
@@ -153,11 +153,11 @@ export function InteractiveBackground({ theme }: InteractiveBackgroundProps) {
           node.energy = 0;
         }
 
-        const radius = 1.6 + node.energy * 9.2;
+        const radius = 1.6 + node.energy * 10.0;
         const alpha = baseAlpha + node.energy * (peakAlpha - baseAlpha);
 
         ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${alpha.toFixed(3)})`;
-        ctx.lineWidth = 1 + node.energy * 0.35;
+        ctx.lineWidth = 1.0 + node.energy * 0.9;
         ctx.beginPath();
         ctx.arc(node.x, node.y, radius, 0, Math.PI * 2);
         ctx.stroke();
